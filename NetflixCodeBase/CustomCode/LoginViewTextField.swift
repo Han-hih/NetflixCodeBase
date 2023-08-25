@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginViewTextField: UITextField {
-    
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -17,11 +17,14 @@ class LoginViewTextField: UITextField {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
-
+    
+  
+    
     func setTextField() {
         layer.cornerRadius = 8
         backgroundColor = .lightGray
-        attributedPlaceholder = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-    }
+        
+}
 }
