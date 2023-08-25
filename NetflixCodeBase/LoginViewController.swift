@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     
     let informationEnterView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = .clear
 
         return view
     }()
@@ -60,11 +60,22 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
+    let registerButton = {
+        let button = UIButton()
+        button.setTitle("회원가입", for: .normal)
+        button.layer.cornerRadius = 8
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        button.backgroundColor = .white
+        
+       return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
-        [netflixLabel, informationEnterView, idTextField, pwTextField, nicknameTextField, locationTexField, recommedTextField].forEach { view.addSubview($0)
+        [netflixLabel, informationEnterView, idTextField, pwTextField, nicknameTextField, locationTexField, recommedTextField, registerButton].forEach { view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
       
         }
@@ -111,7 +122,13 @@ class LoginViewController: UIViewController {
         recommedTextField.topAnchor.constraint(equalTo: locationTexField.bottomAnchor, constant: 10),
         recommedTextField.leadingAnchor.constraint(equalTo: informationEnterView.leadingAnchor),
         recommedTextField.trailingAnchor.constraint(equalTo: informationEnterView.trailingAnchor),
-        recommedTextField.heightAnchor.constraint(equalTo: informationEnterView.heightAnchor, multiplier: 0.12)
+        recommedTextField.heightAnchor.constraint(equalTo: informationEnterView.heightAnchor, multiplier: 0.12),
+        
+        //회원가입 버튼
+        registerButton.topAnchor.constraint(equalTo: recommedTextField.bottomAnchor, constant: 10),
+        registerButton.leadingAnchor.constraint(equalTo: informationEnterView.leadingAnchor),
+        registerButton.trailingAnchor.constraint(equalTo: informationEnterView.trailingAnchor),
+        registerButton.heightAnchor.constraint(equalTo: informationEnterView.heightAnchor, multiplier: 0.15)
         ])
     }
 }
