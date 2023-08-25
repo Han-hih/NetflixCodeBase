@@ -66,6 +66,12 @@ class ViewController: UIViewController {
     }()
     
     // MARK: - 중간뷰 버튼
+    let middleView = {
+        let view = UIView()
+        view.backgroundColor = .gray
+        
+        return view
+    }()
 //    let myContentButton = {
 //        let button = MiddleView()
 //        button.configuration?.title = "내가 찜한 컨텐츠"
@@ -73,6 +79,15 @@ class ViewController: UIViewController {
 //
 //        return button
 //    }()
+    
+    lazy var playButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "play_normal"), for: .normal)
+        button.addTarget(self, action: #selector(toNextVC), for: .touchUpInside)
+        
+        
+        return button
+    }()
     
     // MARK: - 하단뷰 레이블, 이미지
     let bottomView = {
@@ -116,7 +131,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         
-        [movieImageView, backgroundView, topView, mainButton, tvButton, movieButton, myButton, bottomView, firstImage, secondImage, thirdImage, previewLabel].forEach { view.addSubview($0)
+        [movieImageView, backgroundView, topView, mainButton, tvButton, movieButton, myButton, bottomView, firstImage, secondImage, thirdImage, previewLabel, middleView, playButton].forEach { view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -126,6 +141,9 @@ class ViewController: UIViewController {
         setAutolayout()
     }
     
+    @objc func toNextVC() {
+        
+    }
 
     // MARK: - 오토레이아웃
     func setAutolayout() {
@@ -162,7 +180,17 @@ class ViewController: UIViewController {
             myButton.leadingAnchor.constraint(equalTo: movieButton.trailingAnchor, constant: 40),
             
             //중간뷰
+            middleView.bottomAnchor.constraint(equalTo: bottomView.topAnchor, constant: 5),
+            middleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            middleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            middleView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
             
+            // 중간뷰 playButton
+            playButton.centerXAnchor.constraint(equalTo: middleView.centerXAnchor),
+            playButton.centerYAnchor.constraint(equalTo: middleView.centerYAnchor),
+            //사이즈 조절이 안 됨
+//            playButton.heightAnchor.constraint(equalTo: middleView.heightAnchor, multiplier: 1),
+//            playButton.widthAnchor.constraint(equalTo: playButton.heightAnchor, multiplier: 2),
             //중간뷰 내가 찜한 컨텐츠 버튼
 //            myContentButton.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 200)
             
