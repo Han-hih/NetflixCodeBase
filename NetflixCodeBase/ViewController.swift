@@ -79,7 +79,7 @@ class ViewController: UIViewController {
 //
 //        return button
 //    }()
-    
+    // 중간뷰 재생버튼 (다음 뷰컨으로 넘어감)
     lazy var playButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "play_normal"), for: .normal)
@@ -140,9 +140,11 @@ class ViewController: UIViewController {
         
         setAutolayout()
     }
-    
+    // 다음 뷰컨으로 넘어가는 함수
     @objc func toNextVC() {
-        
+        let vc = LoginViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 
     // MARK: - 오토레이아웃
@@ -185,7 +187,7 @@ class ViewController: UIViewController {
             middleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             middleView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
             
-            // 중간뷰 playButton
+            // 중간뷰 playButton // symbolconfiguration 적용해보기
             playButton.centerXAnchor.constraint(equalTo: middleView.centerXAnchor),
             playButton.centerYAnchor.constraint(equalTo: middleView.centerYAnchor),
             //사이즈 조절이 안 됨
