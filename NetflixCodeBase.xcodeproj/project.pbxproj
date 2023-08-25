@@ -15,6 +15,7 @@
 		801D7A982A97B13A007F8B5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801D7A962A97B13A007F8B5F /* LaunchScreen.storyboard */; };
 		80BECF612A97BF0D00C43978 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BECF602A97BF0D00C43978 /* CustomView.swift */; };
 		80BECF6A2A9872B300C43978 /* TopViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BECF692A9872B300C43978 /* TopViewLabel.swift */; };
+		80BECF6D2A98787600C43978 /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BECF6C2A98787600C43978 /* MiddleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		801D7A992A97B13A007F8B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80BECF602A97BF0D00C43978 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		80BECF692A9872B300C43978 /* TopViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewLabel.swift; sourceTree = "<group>"; };
+		80BECF6C2A98787600C43978 /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +62,26 @@
 		801D7A8A2A97B139007F8B5F /* NetflixCodeBase */ = {
 			isa = PBXGroup;
 			children = (
+				80BECF6B2A98784E00C43978 /* CustomCode */,
 				801D7A8B2A97B139007F8B5F /* AppDelegate.swift */,
 				801D7A8D2A97B139007F8B5F /* SceneDelegate.swift */,
 				801D7A8F2A97B139007F8B5F /* ViewController.swift */,
-				80BECF602A97BF0D00C43978 /* CustomView.swift */,
-				80BECF692A9872B300C43978 /* TopViewLabel.swift */,
 				801D7A912A97B139007F8B5F /* Main.storyboard */,
 				801D7A942A97B13A007F8B5F /* Assets.xcassets */,
 				801D7A962A97B13A007F8B5F /* LaunchScreen.storyboard */,
 				801D7A992A97B13A007F8B5F /* Info.plist */,
 			);
 			path = NetflixCodeBase;
+			sourceTree = "<group>";
+		};
+		80BECF6B2A98784E00C43978 /* CustomCode */ = {
+			isa = PBXGroup;
+			children = (
+				80BECF602A97BF0D00C43978 /* CustomView.swift */,
+				80BECF692A9872B300C43978 /* TopViewLabel.swift */,
+				80BECF6C2A98787600C43978 /* MiddleView.swift */,
+			);
+			path = CustomCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 				801D7A902A97B139007F8B5F /* ViewController.swift in Sources */,
 				80BECF612A97BF0D00C43978 /* CustomView.swift in Sources */,
 				801D7A8C2A97B139007F8B5F /* AppDelegate.swift in Sources */,
+				80BECF6D2A98787600C43978 /* MiddleView.swift in Sources */,
 				801D7A8E2A97B139007F8B5F /* SceneDelegate.swift in Sources */,
 				80BECF6A2A9872B300C43978 /* TopViewLabel.swift in Sources */,
 			);
