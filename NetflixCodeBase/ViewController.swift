@@ -68,14 +68,19 @@ class ViewController: UIViewController {
     // MARK: - 중간뷰 버튼
     let middleView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = .clear
         
         return view
     }()
+    let myContentButton = {
+        let button = UIButton()
+        button.configuration = .middleViewButton(button: .check)
+        return button
+    }()
+    
+    
 //    let myContentButton = {
-//        let button = MiddleView()
-//        button.configuration?.title = "내가 찜한 컨텐츠"
-//        button.configuration?.image = UIImage(named: "checkmark.circle")
+//        let button = middleViewButton(button: .check)
 //
 //        return button
 //    }()
@@ -85,6 +90,12 @@ class ViewController: UIViewController {
         button.setImage(UIImage(named: "play_normal"), for: .normal)
         button.addTarget(self, action: #selector(toNextVC), for: .touchUpInside)
         
+        return button
+    }()
+    
+    let infoButton = {
+        let button = UIButton()
+        button.configuration = .middleViewButton(button: .information)
         
         return button
     }()
@@ -131,7 +142,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         
-        [movieImageView, backgroundView, topView, mainButton, tvButton, movieButton, myButton, bottomView, firstImage, secondImage, thirdImage, previewLabel, middleView, playButton].forEach { view.addSubview($0)
+        [movieImageView, backgroundView, topView, mainButton, tvButton, movieButton, myButton, bottomView, firstImage, secondImage, thirdImage, previewLabel, middleView, myContentButton, playButton, infoButton].forEach { view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -187,6 +198,11 @@ class ViewController: UIViewController {
             middleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             middleView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
             
+            myContentButton.topAnchor.constraint(equalTo: middleView.topAnchor, constant: 5),
+            myContentButton.leadingAnchor.constraint(equalTo: middleView.leadingAnchor, constant: 10),
+            myContentButton.centerYAnchor.constraint(equalTo: middleView.centerYAnchor),
+            myContentButton.bottomAnchor.constraint(equalTo: middleView.bottomAnchor, constant: 10),
+          
             // 중간뷰 playButton // symbolconfiguration 적용해보기
             playButton.centerXAnchor.constraint(equalTo: middleView.centerXAnchor),
             playButton.centerYAnchor.constraint(equalTo: middleView.centerYAnchor),
@@ -196,6 +212,10 @@ class ViewController: UIViewController {
             //중간뷰 내가 찜한 컨텐츠 버튼
 //            myContentButton.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 200)
             
+            infoButton.topAnchor.constraint(equalTo: middleView.topAnchor, constant: 5),
+            infoButton.bottomAnchor.constraint(equalTo: middleView.bottomAnchor, constant: 10),
+            infoButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 40),
+            infoButton.centerYAnchor.constraint(equalTo: middleView.centerYAnchor),
             //하단뷰
             bottomView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -209,6 +229,7 @@ class ViewController: UIViewController {
             //하단뷰 첫번째 이미지
             firstImage.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: 0),
             firstImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3),
+//            firstImage.widthAnchor.constraint(equalToConstant: width),
             firstImage.heightAnchor.constraint(equalTo: firstImage.widthAnchor, multiplier: 1),
             firstImage.trailingAnchor.constraint(equalTo: secondImage.leadingAnchor, constant: -7),
             
